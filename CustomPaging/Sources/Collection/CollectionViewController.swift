@@ -153,6 +153,16 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     {
         return cellInfos[indexPath.item].size
     }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>)
+    {
+        pagingView.contentViewWillEndDragging(scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        pagingView.contentViewWillBeginDragging(scrollView)
+    }
  
 }
 
